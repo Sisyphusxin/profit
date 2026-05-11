@@ -1,0 +1,377 @@
+/* sisyphus-site · 站内样式（对齐 docs/site-brief.md） */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #f6f8fa;
+    color: #24292f;
+    line-height: 1.6;
+    padding: 3rem 1rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* 站内主导航（无「关于」· DEC-006） */
+.site-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    padding: 0.6rem 0 1rem;
+    margin-bottom: 0.25rem;
+    border-bottom: 1px solid #d1d9e0;
+}
+
+.site-nav a {
+    color: #656d76;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.site-nav a:hover {
+    color: #0969da;
+}
+
+.site-nav a[aria-current="page"] {
+    color: #0969da;
+    font-weight: 600;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #d1d9e0;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 1px #d1d9e0;
+    overflow: hidden;
+    background: #fff;
+}
+
+.avatar-inner {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-photo {
+    object-position: 68% 58%;
+}
+
+.avatar-inner.is-hidden {
+    display: none;
+}
+
+.username {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+}
+
+.bio {
+    color: #656d76;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.75rem 2rem;
+    flex-wrap: wrap;
+    font-size: 1.1rem;
+}
+
+.link-with-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: #0969da;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.link-with-icon:hover {
+    color: #0550a0;
+    text-decoration: underline;
+}
+
+.link-with-icon:hover .social-icon {
+    color: #0550a0;
+}
+
+.social-icon {
+    flex-shrink: 0;
+    width: 1.125rem;
+    height: 1.125rem;
+    color: #0969da;
+    transition: color 0.2s;
+}
+
+.wechat-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: #0969da;
+    font-weight: 500;
+}
+
+.wechat-row:hover {
+    color: #0550a0;
+}
+
+.wechat-row .nav-icon-wechat {
+    width: 1.125rem;
+    height: 1.125rem;
+    flex-shrink: 0;
+}
+
+.wechat-copy-trigger {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    font-weight: 500;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    user-select: none;
+    transition: color 0.2s;
+}
+
+.wechat-copy-trigger:hover {
+    text-decoration: underline;
+    color: #0550a0;
+}
+
+.wechat-copy-trigger:focus-visible {
+    outline: 2px solid #0969da;
+    outline-offset: 2px;
+    border-radius: 3px;
+}
+
+.copy-toast {
+    margin: 0;
+    padding: 0;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: #6e7781;
+    letter-spacing: 0.01em;
+    text-align: center;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 0.2s ease, max-height 0.25s ease, margin 0.2s ease;
+}
+
+.copy-toast.is-visible {
+    margin-top: 0.5rem;
+    max-height: 2rem;
+    opacity: 1;
+}
+
+/* 版块：中文 + DEC-007 英文 tag */
+.section {
+    margin-bottom: 2.75rem;
+}
+
+.section:last-of-type {
+    margin-bottom: 0;
+}
+
+/* 子页归档仅一节：避免 :last-of-type 把本节底距吃掉，与首页「区块↔页脚」留白一致 */
+.section.section--archive:last-of-type {
+    margin-bottom: 2.75rem;
+}
+
+.cat-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.65rem;
+}
+
+.cat-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #24292f;
+}
+
+/* 页内标题（h1）：与首页版块 h2.cat-title 同档 */
+h1.cat-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+/* 小号全大写 + 宽字距 · DEC-007 */
+.cat-badge {
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    color: #6e7781;
+    background: #f6f8fa;
+    border: 1px solid #e8edf2;
+}
+
+.cat-desc.quote-en {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #656d76;
+    max-width: 34em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.cat-desc {
+    color: #656d76;
+    font-size: 1rem;
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 1.35rem;
+}
+
+/* 归档页紧跟英文引文的说明段：与普通 .cat-desc 同字号，与首页节选区说明一致 */
+.cat-desc.cat-desc--lede {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+/* 四字段卡片 · 整块指向外链 · DEC-005 */
+.entry-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.entry-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    background: #fff;
+    border: 1px solid #d1d9e0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.entry-card:hover {
+    border-color: #afb8c1;
+    box-shadow: 0 4px 12px rgba(31, 35, 40, 0.06);
+}
+
+.entry-card:focus-visible {
+    outline: 2px solid #0969da;
+    outline-offset: 2px;
+}
+
+.entry-card__media {
+    aspect-ratio: 16 / 9;
+    background: #eaeef2;
+}
+
+.entry-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.entry-card__body {
+    padding: 0.9rem 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* h2/h3 在卡片内因 UA 或层级易与首页不一致，统一与同页精选卡相同尺寸 */
+.entry-card .entry-card__title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #24292f;
+    margin: 0 0 0.4rem;
+    line-height: 1.4;
+}
+
+.entry-card .entry-card__lede {
+    font-size: 0.8125rem;
+    color: #656d76;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.section-more-wrap {
+    text-align: center;
+    margin-top: 1.15rem;
+}
+
+.section-more {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #0969da;
+    text-decoration: none;
+}
+
+.section-more:hover {
+    text-decoration: underline;
+    color: #0550a0;
+}
+
+.foot {
+    margin-top: 2.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #d1d9e0;
+    text-align: center;
+    font-size: 0.8125rem;
+    color: #8c959f;
+}
+
+.home-main {
+    padding-top: 0.25rem;
+}
+
+/* 归档子页无头像区：略增 main 顶距，避免首段与顶栏贴太紧（需盖过上一段 .home-main） */
+.home-main.main--list {
+    padding-top: 0.5rem;
+}
+
+@media (max-width: 700px) {
+    .entry-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .username {
+        font-size: 1.6rem;
+    }
+
+    body {
+        padding: 1.25rem 1rem 3rem;
+    }
+}
